@@ -13,11 +13,24 @@ accel = 300.0
 decel = 500.0
 max_speed = 75.0
 jump_vel = -150.0
+camera_lead_px = 8.0
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1078359000]
 position = Vector2(0, -8)
 texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=551931047]
+visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1884381396]
+visible = false
+position = Vector2(0, -8)
+process_callback = 0
+limit_left = -208
+limit_top = 0
+limit_right = 320
+limit_bottom = 180
+limit_smoothed = true
+position_smoothing_enabled = true
