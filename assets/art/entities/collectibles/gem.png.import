@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2u3ohrxy51rp"
-path="res://.godot/imported/stun.png-b2f911aeda97eaa50fcb51e5f008cb04.ctex"
+uid="uid://cpifaxdg1ifa4"
+path="res://.godot/imported/gem.png-c15829cd6fbcc902ef1cfec8e8813c0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stun.png"
-dest_files=["res://.godot/imported/stun.png-b2f911aeda97eaa50fcb51e5f008cb04.ctex"]
+source_file="res://assets/art/entities/collectibles/gem.png"
+dest_files=["res://.godot/imported/gem.png-c15829cd6fbcc902ef1cfec8e8813c0f.ctex"]
 
 [params]
 

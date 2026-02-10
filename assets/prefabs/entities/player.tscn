@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://fh2vvau27r5q"]
 
-[ext_resource type="Script" uid="uid://clh6sjvx4tnbk" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://bmr4ggpf2j767" path="res://player_body.png" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://coxesuxk4qtpr" path="res://player_head.png" id="3_hqtel"]
-[ext_resource type="AudioStream" uid="uid://c5kfav1we3vgl" path="res://walk.wav" id="4_hqtel"]
-[ext_resource type="Texture2D" uid="uid://2u3ohrxy51rp" path="res://stun.png" id="4_sweqy"]
-[ext_resource type="AudioStream" uid="uid://bc7kbhyqsiv4w" path="res://head_bonk.wav" id="6_2hs0m"]
+[ext_resource type="Script" uid="uid://clh6sjvx4tnbk" path="res://assets/scripts/entities/player/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bmr4ggpf2j767" path="res://assets/art/entities/player/player_body.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://coxesuxk4qtpr" path="res://assets/art/entities/player/player_head.png" id="3_hqtel"]
+[ext_resource type="AudioStream" uid="uid://c5kfav1we3vgl" path="res://assets/sounds/entities/player/walk.wav" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://2u3ohrxy51rp" path="res://assets/art/particles/stun.png" id="4_sweqy"]
+[ext_resource type="AudioStream" uid="uid://bc7kbhyqsiv4w" path="res://assets/sounds/entities/player/head_bonk.wav" id="6_2hs0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
 atlas = ExtResource("2_i3pqv")
@@ -70,6 +70,7 @@ accel = 300.0
 decel = 500.0
 max_speed = 75.0
 jump_vel = -150.0
+jumping_grav_mult = 0.65
 camera_lead_px = 8.0
 
 [node name="Flipper" type="Node2D" parent="." unique_id=1125616041]
@@ -113,7 +114,7 @@ visible = false
 position = Vector2(0, -8)
 process_callback = 0
 limit_left = -208
-limit_top = 0
+limit_top = -48
 limit_right = 320
 limit_bottom = 180
 limit_smoothed = true

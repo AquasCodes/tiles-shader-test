@@ -26,7 +26,6 @@ bool is_border(vec2 s_uv, vec2 px_size) {
 			return true;
 		}
 	}
-	
 	return false;
 }
 

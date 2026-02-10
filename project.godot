@@ -24,6 +24,16 @@ window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[file_customization]
+
+folder_colors={
+"res://assets/art/": "pink",
+"res://assets/prefabs/": "red",
+"res://assets/scripts/": "purple",
+"res://assets/shaders/": "yellow",
+"res://assets/sounds/": "orange"
+}
+
 [input]
 
 walk_left={

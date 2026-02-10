@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://dmp5eoxhiq68g"]
 
-[ext_resource type="Script" uid="uid://dcp7qj02rnkhs" path="res://collectible.gd" id="1_rd2yi"]
-[ext_resource type="Shader" uid="uid://dkvqgmtxvhipj" path="res://shine.gdshader" id="2_oc26g"]
-[ext_resource type="Texture2D" uid="uid://cpifaxdg1ifa4" path="res://gem.png" id="2_yciwo"]
-[ext_resource type="Texture2D" uid="uid://blx1cy1oqy7a7" path="res://shine.png" id="3_yciwo"]
-[ext_resource type="AudioStream" uid="uid://c6w63asvalljl" path="res://collectible_collect.wav" id="4_h1l3x"]
+[ext_resource type="Script" uid="uid://dcp7qj02rnkhs" path="res://assets/scripts/entities/collectible/collectible.gd" id="1_rd2yi"]
+[ext_resource type="Shader" uid="uid://dkvqgmtxvhipj" path="res://assets/shaders/shine.gdshader" id="2_oc26g"]
+[ext_resource type="Texture2D" uid="uid://cpifaxdg1ifa4" path="res://assets/art/entities/collectibles/gem.png" id="2_yciwo"]
+[ext_resource type="Texture2D" uid="uid://blx1cy1oqy7a7" path="res://assets/art/particles/shine.png" id="3_yciwo"]
+[ext_resource type="AudioStream" uid="uid://c6w63asvalljl" path="res://assets/sounds/entities/collectibles/collectible_collect.wav" id="4_h1l3x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mr1af"]
 shader = ExtResource("2_oc26g")
 shader_parameter/spacing = 250.0
 shader_parameter/max_dist = 0.02999999932944
-shader_parameter/speed = 200.0
+shader_parameter/speed = 175.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yciwo"]
 radius = 5.0
@@ -36,7 +36,7 @@ bob_magnitude = 2.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=683635157]
 material = SubResource("ShaderMaterial_mr1af")
-position = Vector2(0, -1.31486)
+position = Vector2(0, 1.4416217)
 texture = ExtResource("2_yciwo")
 hframes = 3
 
