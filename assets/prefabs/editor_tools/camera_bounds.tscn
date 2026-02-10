@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://rfh5nvbdppu5"]
+
+[ext_resource type="Script" uid="uid://c0q6jhwqvs2wl" path="res://assets/scripts/editor_tools/camera_bounds.gd" id="1_e1kbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1kbd"]
+size = Vector2(320, 180)
+
+[node name="CameraBounds" type="CollisionShape2D" unique_id=1836970759 groups=["camera_bounds"]]
+z_index = 4096
+shape = SubResource("RectangleShape2D_e1kbd")
+debug_color = Color(1, 1, 0, 0)
+script = ExtResource("1_e1kbd")

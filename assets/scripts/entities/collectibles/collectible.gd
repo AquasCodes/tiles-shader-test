@@ -2,6 +2,8 @@
 extends Area2D
 class_name Collectible
 
+signal collected
+
 @export var anim_speed: float = 1
 @export var bob_magnitude: float = 3
 
@@ -28,12 +30,17 @@ func _process(delta: float) -> void:
 		sprite.position.y = sin(anim_timer * anim_speed) * bob_magnitude
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player and not is_collected:
+	if body is Player:
+		collect()
+
+func collect() -> void:
+	if not is_collected:
 		sprite.visible = false
 		shine_particles.visible = false
 		collect_particles.emitting = true
 		collect_noise.play()
 		is_collected = true
+		collected.emit()
 		
 		await collect_particles.finished
 		

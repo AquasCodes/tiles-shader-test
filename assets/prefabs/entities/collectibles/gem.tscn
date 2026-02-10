@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://iaskedjqn6wu"]
+
+[ext_resource type="PackedScene" uid="uid://dmp5eoxhiq68g" path="res://assets/prefabs/entities/collectibles/collectible.tscn" id="1_ev5uh"]
+[ext_resource type="Texture2D" uid="uid://cpifaxdg1ifa4" path="res://assets/art/entities/collectibles/gem.png" id="2_rojkr"]
+
+[node name="Collectible" unique_id=430365833 instance=ExtResource("1_ev5uh")]
+
+[node name="Sprite" parent="." index="0" unique_id=683635157]
+position = Vector2(0, 1.8141049)
+texture = ExtResource("2_rojkr")
+hframes = 3

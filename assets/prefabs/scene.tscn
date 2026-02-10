@@ -3,8 +3,12 @@
 [ext_resource type="Shader" uid="uid://bdpns8h81shsl" path="res://assets/shaders/outline.gdshader" id="1_2hbtp"]
 [ext_resource type="Texture2D" uid="uid://q0pbs04xt5lr" path="res://assets/art/tiles/bgtiles.png" id="2_5npde"]
 [ext_resource type="PackedScene" uid="uid://fh2vvau27r5q" path="res://assets/prefabs/entities/player.tscn" id="3_wb4he"]
-[ext_resource type="PackedScene" uid="uid://dmp5eoxhiq68g" path="res://assets/prefabs/entities/collectible.tscn" id="4_63oou"]
+[ext_resource type="PackedScene" uid="uid://iaskedjqn6wu" path="res://assets/prefabs/entities/collectibles/gem.tscn" id="4_2hbtp"]
 [ext_resource type="Texture2D" uid="uid://c82e5v16jkhay" path="res://assets/art/tiles/naturetiles.png" id="5_hucq8"]
+[ext_resource type="PackedScene" uid="uid://rfh5nvbdppu5" path="res://assets/prefabs/editor_tools/camera_bounds.tscn" id="6_5npde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb4he"]
+size = Vector2(528, 216)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u3cyc"]
 shader = ExtResource("1_2hbtp")
@@ -53,11 +57,11 @@ sources/0 = SubResource("TileSetAtlasSource_y2354")
 shader = ExtResource("1_2hbtp")
 shader_parameter/outline_col = Color(0, 0, 0, 1)
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3253y"]
-scenes/1/scene = ExtResource("4_63oou")
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5npde"]
+scenes/1/scene = ExtResource("4_2hbtp")
 
 [sub_resource type="TileSet" id="TileSet_u3cyc"]
-sources/0 = SubResource("TileSetScenesCollectionSource_3253y")
+sources/1 = SubResource("TileSetScenesCollectionSource_5npde")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxogm"]
 texture = ExtResource("5_hucq8")
@@ -150,6 +154,10 @@ sources/0 = SubResource("TileSetAtlasSource_nxogm")
 
 [node name="Scene" type="Node2D" unique_id=1526652948]
 
+[node name="CameraBounds" parent="." unique_id=1836970759 instance=ExtResource("6_5npde")]
+position = Vector2(56, 76)
+shape = SubResource("RectangleShape2D_wb4he")
+
 [node name="Sky" type="ColorRect" parent="." unique_id=1219034751]
 z_index = -4096
 offset_left = -672.0
@@ -174,7 +182,7 @@ material = SubResource("ShaderMaterial_3253y")
 position = Vector2(-136, 48)
 
 [node name="Collectibles" type="TileMapLayer" parent="Main/Gameplay" unique_id=1380396529]
-tile_map_data = PackedByteArray("AAD4/wcAAAAAAAAAAQD6/wcAAAAAAAAAAQD8/wcAAAAAAAAAAQD+/wcAAAAAAAAAAQADAAcAAAAAAAAAAQAFAAcAAAAAAAAAAQAHAAYAAAAAAAAAAQAKAAcAAAAAAAAAAQAMAAYAAAAAAAAAAQARAAUAAAAAAAAAAQAPAAMAAAAAAAAAAQAMAAEAAAAAAAAAAQAGAAEAAAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD4/wcAAQAAAAAAAQD5/wcAAQAAAAAAAQD6/wcAAQAAAAAAAQD7/wcAAQAAAAAAAQD7/wYAAQAAAAAAAQD8/wcAAQAAAAAAAQD9/wcAAQAAAAAAAQD6/wYAAQAAAAAAAQADAAgAAQAAAAAAAQAEAAgAAQAAAAAAAQAFAAcAAQAAAAAAAQAGAAcAAQAAAAAAAQAHAAcAAQAAAAAAAQAHAAYAAQAAAAAAAQAIAAYAAQAAAAAAAQAMAAYAAQAAAAAAAQAMAAcAAQAAAAAAAQANAAcAAQAAAAAAAQAOAAcAAQAAAAAAAQAPAAcAAQAAAAAAAQAPAAgAAQAAAAAAAQAQAAgAAQAAAAAAAQASAAYAAQAAAAAAAQARAAYAAQAAAAAAAQARAAUAAQAAAAAAAQARAAQAAQAAAAAAAQAQAAQAAQAAAAAAAQAPAAMAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_u3cyc")
 
 [node name="MainTiles" type="Node2D" parent="Main" unique_id=799416013]
@@ -184,15 +192,30 @@ tile_map_data = PackedByteArray("AAAAAAMAAAAEAAAAAAABAAMAAAAFAAAAAAABAAQAAAAFAAE
 tile_set = SubResource("TileSet_drvgu")
 
 [connection signal="body_entered" from="Main/Gameplay/Collectibles/Collectible" to="Main/Gameplay/Collectibles/Collectible" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48577" to="Main/Gameplay/Collectibles/@Area2D@48577" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48578" to="Main/Gameplay/Collectibles/@Area2D@48578" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48579" to="Main/Gameplay/Collectibles/@Area2D@48579" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48580" to="Main/Gameplay/Collectibles/@Area2D@48580" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48581" to="Main/Gameplay/Collectibles/@Area2D@48581" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48582" to="Main/Gameplay/Collectibles/@Area2D@48582" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48583" to="Main/Gameplay/Collectibles/@Area2D@48583" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48584" to="Main/Gameplay/Collectibles/@Area2D@48584" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48585" to="Main/Gameplay/Collectibles/@Area2D@48585" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48586" to="Main/Gameplay/Collectibles/@Area2D@48586" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48587" to="Main/Gameplay/Collectibles/@Area2D@48587" method="_on_body_entered"]
-[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@48588" to="Main/Gameplay/Collectibles/@Area2D@48588" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44925" to="Main/Gameplay/Collectibles/@Area2D@44925" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44926" to="Main/Gameplay/Collectibles/@Area2D@44926" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44927" to="Main/Gameplay/Collectibles/@Area2D@44927" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44928" to="Main/Gameplay/Collectibles/@Area2D@44928" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44929" to="Main/Gameplay/Collectibles/@Area2D@44929" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44930" to="Main/Gameplay/Collectibles/@Area2D@44930" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44931" to="Main/Gameplay/Collectibles/@Area2D@44931" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44932" to="Main/Gameplay/Collectibles/@Area2D@44932" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44933" to="Main/Gameplay/Collectibles/@Area2D@44933" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44934" to="Main/Gameplay/Collectibles/@Area2D@44934" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44935" to="Main/Gameplay/Collectibles/@Area2D@44935" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44936" to="Main/Gameplay/Collectibles/@Area2D@44936" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44937" to="Main/Gameplay/Collectibles/@Area2D@44937" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44938" to="Main/Gameplay/Collectibles/@Area2D@44938" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44939" to="Main/Gameplay/Collectibles/@Area2D@44939" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44940" to="Main/Gameplay/Collectibles/@Area2D@44940" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44941" to="Main/Gameplay/Collectibles/@Area2D@44941" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44942" to="Main/Gameplay/Collectibles/@Area2D@44942" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44943" to="Main/Gameplay/Collectibles/@Area2D@44943" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44944" to="Main/Gameplay/Collectibles/@Area2D@44944" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44945" to="Main/Gameplay/Collectibles/@Area2D@44945" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44946" to="Main/Gameplay/Collectibles/@Area2D@44946" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44947" to="Main/Gameplay/Collectibles/@Area2D@44947" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44948" to="Main/Gameplay/Collectibles/@Area2D@44948" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44949" to="Main/Gameplay/Collectibles/@Area2D@44949" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44950" to="Main/Gameplay/Collectibles/@Area2D@44950" method="_on_body_entered"]
+[connection signal="body_entered" from="Main/Gameplay/Collectibles/@Area2D@44951" to="Main/Gameplay/Collectibles/@Area2D@44951" method="_on_body_entered"]

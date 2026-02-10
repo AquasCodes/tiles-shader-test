@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://clh6sjvx4tnbk" path="res://assets/scripts/entities/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bmr4ggpf2j767" path="res://assets/art/entities/player/player_body.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://dyxbsgkw6xgga" path="res://assets/scripts/entities/player/player_movement.gd" id="2_ngu5j"]
+[ext_resource type="Script" uid="uid://b8tbps6htr20c" path="res://assets/scripts/entities/player/player_sfx.gd" id="3_017pw"]
 [ext_resource type="Texture2D" uid="uid://coxesuxk4qtpr" path="res://assets/art/entities/player/player_head.png" id="3_hqtel"]
 [ext_resource type="AudioStream" uid="uid://c5kfav1we3vgl" path="res://assets/sounds/entities/player/walk.wav" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://2u3ohrxy51rp" path="res://assets/art/particles/stun.png" id="4_sweqy"]
+[ext_resource type="Script" uid="uid://00nliatkghwj" path="res://assets/scripts/entities/player/player_animation.gd" id="4_t4xbb"]
+[ext_resource type="Script" uid="uid://bi055go3852u7" path="res://assets/scripts/entities/player/player_camera.gd" id="5_orppt"]
 [ext_resource type="AudioStream" uid="uid://bc7kbhyqsiv4w" path="res://assets/sounds/entities/player/head_bonk.wav" id="6_2hs0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
@@ -66,11 +70,32 @@ point_count = 3
 [node name="Player" type="CharacterBody2D" unique_id=1805899635]
 collision_layer = 2
 script = ExtResource("1_onrkg")
+
+[node name="PlayerMovement" type="Node" parent="." unique_id=1470357834]
+script = ExtResource("2_ngu5j")
 accel = 300.0
 decel = 500.0
 max_speed = 75.0
 jump_vel = -150.0
 jumping_grav_mult = 0.65
+
+[node name="PlayerSFX" type="Node" parent="." unique_id=818301349]
+script = ExtResource("3_017pw")
+
+[node name="PlayerAnimation" type="Node" parent="." unique_id=622335246]
+script = ExtResource("4_t4xbb")
+
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=1884381396]
+visible = false
+position = Vector2(0, -8)
+process_callback = 0
+limit_left = -208
+limit_top = -48
+limit_right = 320
+limit_bottom = 180
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("5_orppt")
 camera_lead_px = 8.0
 
 [node name="Flipper" type="Node2D" parent="." unique_id=1125616041]
@@ -109,17 +134,6 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_curve = SubResource("Curve_2hs0m")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1884381396]
-visible = false
-position = Vector2(0, -8)
-process_callback = 0
-limit_left = -208
-limit_top = -48
-limit_right = 320
-limit_bottom = 180
-limit_smoothed = true
-position_smoothing_enabled = true
-
 [node name="WalkSound" type="AudioStreamPlayer" parent="." unique_id=1364371789]
 stream = ExtResource("4_hqtel")
 volume_db = -10.0
@@ -127,4 +141,4 @@ volume_db = -10.0
 [node name="HeadBonkSound" type="AudioStreamPlayer" parent="." unique_id=1383355281]
 stream = ExtResource("6_2hs0m")
 
-[connection signal="frame_changed" from="Flipper/Body" to="." method="_on_body_frame_changed"]
+[connection signal="frame_changed" from="Flipper/Body" to="PlayerAnimation" method="_on_body_frame_changed"]
